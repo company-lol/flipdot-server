@@ -19,7 +19,10 @@ class sign:
         self.logger = logging.getLogger(__name__)
         self.sign = HanoverSign(address=int(address), width=int(cols), height=int(rows))
         if not simulator:
-            self.ser = Serial(serial_port)
+            try:
+                self.ser = Serial(serial_port)
+            except:
+                raise Exception("Serial port not detected. Is your sign plugged in? ")
             self.controller = HanoverController(self.ser)
             self.controller.add_sign(name, self.sign)
         
