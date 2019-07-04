@@ -25,7 +25,8 @@ I am assuming you are on linux. It sohuld work under osx, but I cannot promise a
 
 Check out this repo:
 
-    git clone git@github.com:company-lol/flipdot-server.git
+    git clone https://github.com/company-lol/flipdot-server.git
+    flipdot-server.git
 
 Edit the config file
 
