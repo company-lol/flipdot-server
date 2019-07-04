@@ -17,12 +17,78 @@ Post a json serialized `numpy` array directly to the endoint.
 
 **That is it. That is the api.**
 
+## Getting Started
 
-## Creating numpy arrays
+I am assuming you are on linux. It sohuld work under osx, but I cannot promise anything. 
+
+### Checkout sourcecode
+
+Check out this repo:
+
+    git clone git@github.com:company-lol/flipdot-server.git
+
+Edit the config file
+
+    cp config.ini.example config.ini
+    vi config.ini
+
+You will want to make sure that the config file has all the right items in it and that they match your install:
+
+    ; config.ini
+    [SERVER]
+    HOST = 0.0.0.0
+    PORT = 8080
+
+    [FLIPDOTSIGN]
+    COLUMNS = 96
+    ROWS = 16
+    ADDRESS = 1
+    USB = "/dev/ttyUSB0"
+    SIMULATOR = True
+
+
+### Run server
+
+Build the app, cp the config example to config.ini, and run the server:
+
+    pip3 install -r requirements.txt
+    python3 app.py
+
+Should output something like: 
+
+    DEBUG:asyncio:Using selector: KqueueSelector
+    INFO:__main__:Instantiating server
+    INFO:__main__:Creating web app
+    INFO:__main__:Starting background tasks
+
+### Use Docker
+
+Docker should be pretty straight forward. 
+
+    docker-compose build
+    docker-compose up
+
+If you want to have it connect to your USB serial adapter you will need to edit the `docker-compose.yml` file and un-comment out the following:
+
+    #devices:
+    #  - "/dev/ttyUSB0:/dev/ttyUSB0"
+
+to 
+
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+
+## Using the API
+
+If you are testing or getting started, you should go ahead and enable the simulator. This allows you to see what would be pushed through to the flipdot display without actually having the display hooked up. A nice way to debug.  You can ensure that the simlulator is enabled by making sure the `SIMULATOR = True` in the `config.ini`.
+
+Once you have everything configured and it works - you can change the `config.ini` to `SIMULATOR = False` and edit the `docker-compose.yml` to enable the USB device to be passed through.
+
+### Creating numpy arrays
 
 You can create a numpy array represents all of the pixels of the flipdot display. It must be the same size as your flipdot display. For instance, if the flipdot display is 96x16, then the numpy array should be 96x16 as well. 
 
-### Example code
+#### Example code
 
     import numpy
     import requests
