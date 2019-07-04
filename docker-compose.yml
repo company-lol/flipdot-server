@@ -6,4 +6,5 @@ services:
       dockerfile: Dockerfile
     container_name: flipdot-server
     restart: unless-stopped
-
+    ports:
+      - "8080:8080"
