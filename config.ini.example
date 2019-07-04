@@ -7,5 +7,5 @@ PORT = 8080
 COLUMNS = 96
 ROWS = 16
 ADDRESS = 1
-USB = "/dev/ttyUSB0"
+USB = /dev/ttyUSB0
 SIMULATOR = True
