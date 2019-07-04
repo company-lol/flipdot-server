@@ -3,6 +3,12 @@ import numpy as np
 import json
 import logging
 import markdown2
+import sys
+from os import path
+
+from collections import deque
+from concurrent.futures import ThreadPoolExecutor
+import configparser
 
 import asyncio
 
@@ -13,9 +19,7 @@ import jinja2
 from aiojobs.aiohttp import setup, spawn
 from aiojobs.aiohttp import atomic
 
-from collections import deque
-from concurrent.futures import ThreadPoolExecutor
-import configparser
+
 
 
 class FlipdotServer:
@@ -122,7 +126,13 @@ sign_address = 1
 
 if __name__ == '__main__':
     config = configparser.ConfigParser()
-    config.read('config.ini')
+    config_file = 'config.ini'
+    if path.exists(config_file):
+        config.read(config_file)
+    else:
+        logging.error("Config file missing: {}".format(config_file))
+        sys.exit(1)
+
     server = FlipdotServer(
         host=config.get('SERVER', 'HOST'),
         port=config.getint('SERVER', 'PORT'),
