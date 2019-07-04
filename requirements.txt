@@ -1,0 +1,8 @@
+aiohttp
+pyflipdot
+aiohttp_jinja2
+jinja2
+
+markdown2
+aiojobs
+numpy
