@@ -4,6 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: mqtt2flipdot
+    container_name: flipdot-server
     restart: unless-stopped
 
