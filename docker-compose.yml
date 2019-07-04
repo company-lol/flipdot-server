@@ -10,6 +10,8 @@ services:
       - "8080:8080"
     environment:
       - "TZ=America/Chicago"
-    devices:
-      - "/dev/ttyUSB0:/dev/ttyUSB0"
+    volumes:
+      - ./config.ini:/app/config.ini
+    #devices:
+    #  - "/dev/ttyUSB0:/dev/ttyUSB0"
     restart: unless-stopped
