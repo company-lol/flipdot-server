@@ -124,12 +124,12 @@ if __name__ == '__main__':
     config = configparser.ConfigParser()
     config.read('config.ini')
     server = FlipdotServer(
-        host=config['SERVER']['HOST'], 
-        port=config['SERVER']['PORT'], 
-        sign_usb=config['FLIPDOTSIGN']['USB'],
-        sign_address=config['FLIPDOTSIGN']['ADDRESS'],
-        sign_columns=config['FLIPDOTSIGN']['COLUMNS'],
-        sign_rows=config['FLIPDOTSIGN']['ROWS'],
-        sign_simulator=config['FLIPDOTSIGN']['SIMULATOR']
+        host=config.get('SERVER', 'HOST'),
+        port=config.getint('SERVER', 'PORT'),
+        sign_usb=config.get('FLIPDOTSIGN', 'USB'),
+        sign_address=config.getint('FLIPDOTSIGN', 'ADDRESS'),
+        sign_columns=config.getint('FLIPDOTSIGN', 'COLUMNS'),
+        sign_rows=config.getint('FLIPDOTSIGN', 'ROWS'),
+        sign_simulator=config.getboolean('FLIPDOTSIGN', 'SIMULATOR')
         )
     server.run_app()
