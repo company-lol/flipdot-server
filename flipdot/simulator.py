@@ -17,8 +17,8 @@ class flipdotSim:
     def __init__(self, columns, rows):
         logging.basicConfig(level=self.LOG_LEVEL)
         self.logger = logging.getLogger(__name__)
-        self.columns = columns
-        self.rows = rows
+        self.columns = int(columns)
+        self.rows = int(rows)
         #sys.stdout.write(self.clear_display)
         #sys.stdout.flush()
         pass

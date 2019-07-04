@@ -17,14 +17,14 @@ class sign:
         # Create a serial port (update with port name on your system)
         logging.basicConfig(level=self.LOG_LEVEL)
         self.logger = logging.getLogger(__name__)
-        self.sign = HanoverSign(address=address, width=cols, height=rows)
+        self.sign = HanoverSign(address=int(address), width=int(cols), height=int(rows))
         if not simulator:
             self.ser = Serial(serial_port)
             self.controller = HanoverController(self.ser)
             self.controller.add_sign(name, self.sign)
         
         if simulator:
-            self.simulator = flipdotSim(cols, rows)
+            self.simulator = flipdotSim(int(cols), int(rows))
 
     def send(self):
         self.display.send()
