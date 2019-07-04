@@ -108,6 +108,17 @@ You can create a numpy array represents all of the pixels of the flipdot display
 
 This will push a numpy array to your api endpoint that has a pixel in the top left and a pixel in the bottom right.
 
+## Utilities
+
+I will create some utility scripts that can use this API. I am thinking about making: 
+
+* Clock - A simple clock that is cron based that pings the API on the minute to display a clock
+* MQTT Text renderer - a simple mqtt listener that posts a payload to the sign
+* Image renderer - a way to render images
+
+## Help out
+
+I would love a solid code review of the server `app.py` and some help making sure my async code works. ;) 
 
 
 
