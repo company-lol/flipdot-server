@@ -31,7 +31,7 @@ class FlipdotServer:
         self.logger = logging.getLogger(__name__)
         self.host = host
         self.port = port
-        self.pool = ThreadPoolExecutor(max_workers=20)
+        self.pool = ThreadPoolExecutor(max_workers=100)
         self.loop = asyncio.get_event_loop()
         self.images_to_display = deque([])
 
