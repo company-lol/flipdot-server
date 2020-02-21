@@ -7,7 +7,7 @@ class flipdotSim:
  
     reset = "\u001b[0m"
     blank_string = "\u001b[30;1m░" + reset
-    filled_string = "\u001b[33;1m▓" + reset
+    filled_string = "\u001b[33;1m■" + reset
     init_string = "\u001b[0;0H"
     erase_line = "\u001b[K"
     clear_display = "\u001b[2J"
