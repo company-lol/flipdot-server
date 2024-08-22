@@ -1,4 +1,3 @@
-version: '2'
 services:
   flipdot-server:
     build:
@@ -14,4 +13,3 @@ services:
       - ./config.ini:/app/config.ini
     #devices:
     #  - "/dev/ttyUSB0:/dev/ttyUSB0"
-    restart: unless-stopped
