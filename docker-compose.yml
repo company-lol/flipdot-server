@@ -11,5 +11,5 @@ services:
       - "TZ=America/Chicago"
     volumes:
       - ./config.ini:/app/config.ini
-    #devices:
-    #  - "/dev/ttyUSB0:/dev/ttyUSB0"
+    devices:
+     - "/dev/ttyUSB0:/dev/ttyUSB0"
